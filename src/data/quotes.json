@@ -1,0 +1,42 @@
+{
+  "motivacion": [
+    "Hoy es un buen día para empezar de nuevo.",
+    "Tu futuro lo construyes con lo que haces hoy."
+  ],
+  "amor": [
+    "Eres suficiente tal como eres.",
+    "Ámate tanto que no te reconozcas en el pasado."
+  ],
+  "exito": [
+    "El éxito empieza con disciplina.",
+    "Trabaja en silencio, deja que el éxito haga ruido."
+  ],
+  "bienestar": [
+    "Respira profundo. Todo está bien.",
+    "Tú mereces paz y descanso."
+  ],
+  "triste": [
+    "Está bien no estar bien. Respira.",
+    "Después de la tormenta, siempre viene la calma."
+  ],
+  "estresado": [
+    "Haz una pausa. Tú también importas.",
+    "Libera el control. El presente es suficiente."
+  ],
+  "lluvia": [
+    "Días lluviosos también nutren el alma.",
+    "La lluvia limpia el aire y renueva el ánimo."
+  ],
+  "soleado": [
+    "Aprovecha la luz del sol para brillar tú también.",
+    "Un día soleado es una nueva oportunidad."
+  ],
+  "nublado": [
+    "Incluso los días nublados tienen su belleza.",
+    "Las nubes también forman parte del paisaje."
+  ],
+  "nieve": [
+    "La nieve cubre el mundo de calma y silencio.",
+    "Cada copo de nieve es una nueva posibilidad."
+  ]
+}
