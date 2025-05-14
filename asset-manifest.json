@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/power-quotes-plus/static/js/main.c86949aa.js",
+    "index.html": "/power-quotes-plus/index.html",
+    "main.c86949aa.js.map": "/power-quotes-plus/static/js/main.c86949aa.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c86949aa.js"
+  ]
+}
