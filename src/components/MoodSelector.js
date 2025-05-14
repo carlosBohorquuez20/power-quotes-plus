@@ -9,13 +9,12 @@ const MOODS = [
 
 export default function MoodSelector({ selectedMood, onSelect }) {
   return (
-    <div className="flex flex-row gap-6 justify-center mb-4">
+    <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:gap-6 justify-items-center justify-center mb-4 w-full max-w-xs sm:max-w-2xl mx-auto">
       {MOODS.map((mood) => (
         <button
           key={mood.name}
           onClick={() => onSelect(mood.name)}
-          className={`w-28 h-28 rounded-2xl shadow-lg flex flex-col items-center justify-center transition-all border-2
-            ${selectedMood === mood.name ? 'border-[#6d4ba1] scale-105' : 'border-transparent'} ${mood.color}`}
+          className={`w-28 h-28 rounded-2xl shadow-lg flex flex-col items-center justify-center transition-all border-2 ${selectedMood === mood.name ? 'border-[#6d4ba1] scale-105' : 'border-transparent'} ${mood.color}`}
         >
           <span className="text-4xl mb-2">{mood.emoji}</span>
           <span className="text-lg font-medium text-[#6d4ba1]">{mood.name}</span>

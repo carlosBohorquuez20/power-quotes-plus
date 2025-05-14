@@ -18,6 +18,9 @@ const MOOD_COLORS = {
   'Motivado': 'bg-pink-200 text-pink-900',
 };
 
+// Punto de ruptura para viewport
+const isSmallScreen = window.innerWidth < 640;
+
 // Colores de fondo por emoción
 const MOOD_BG = {
   'Feliz': 'bg-yellow-200 text-yellow-900',
@@ -115,31 +118,32 @@ export default function App() {
 
   // Estructura para frases según clima/localización (puedes expandir con integración real de API)
   // function getWeatherBasedQuote(weather, mood) { ... }
-
   return (
-    <div className={`min-h-screen flex flex-col items-center py-8 transition-colors ${dark ? 'bg-[#1a1027]' : 'bg-[#f7eafc]'}`}>
+    <div className={`min-h-screen flex flex-col items-center py-2 sm:py-4 px-1 sm:px-2 transition-colors overflow-x-hidden ${dark ? 'bg-[#1a1027]' : 'bg-[#f7eafc]'}`}>
       {/* Header */}
-      <div className={`w-[90vw] max-w-2xl rounded-[2.5rem] ${dark ? 'bg-[#2d1e4d]' : 'bg-[#f6eaff]'} shadow-xl flex items-center justify-between px-8 py-6 mb-6`}>
+      <div className={`w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto rounded-2xl sm:rounded-3xl ${dark ? 'bg-[#2d1e4d]' : 'bg-[#f6eaff]'} shadow-xl flex items-center justify-between px-2 sm:px-8 py-2 sm:py-6 mb-2 sm:mb-6`}>
         <div>
-          <div className={`text-4xl font-extrabold ${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} leading-none flex items-center gap-2`}>
-            Power Quotes<span className="text-4xl font-extrabold">+</span>
+          <div className={`text-xl sm:text-4xl font-extrabold ${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} leading-none flex items-center gap-2`}>
+            Power Quotes<span className="text-xl sm:text-4xl font-extrabold">+</span>
           </div>
         </div>
-        <div className="flex gap-3 items-center">
-          <button className={`w-10 h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#fff7e6]'} flex items-center justify-center shadow`} onClick={() => setDark(d => !d)}><span className={`text-xl ${dark ? 'text-yellow-300' : 'text-yellow-400'}`}>☀️</span></button>
-          <button className={`w-10 h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`} onClick={() => setShowSettings(!showSettings)}><span className={`${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} text-xl`}>⚙️</span></button>
-          <button className={`w-10 h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`} onClick={() => setShowFavorites(true)}><span className={`${dark ? 'text-pink-300' : 'text-pink-400'} text-xl`}>♥</span></button>
-          <button className={`w-10 h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`}><span className={`${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} text-xl`}>☰</span></button>
+        <div className="flex gap-1 sm:gap-3 items-center">
+          <button className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#fff7e6]'} flex items-center justify-center shadow`} onClick={() => setDark(d => !d)}><span className={`text-base sm:text-xl ${dark ? 'text-yellow-300' : 'text-yellow-400'}`}>☀️</span></button>
+          <button className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`} onClick={() => setShowSettings(!showSettings)}><span className={`${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} text-base sm:text-xl`}>⚙️</span></button>
+          <button className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`} onClick={() => setShowFavorites(true)}><span className={`${dark ? 'text-pink-300' : 'text-pink-400'} text-base sm:text-xl`}>♥</span></button>
+          <button className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full ${dark ? 'bg-[#3a2a5d]' : 'bg-[#ede6ff]'} flex items-center justify-center shadow`}><span className={`${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} text-base sm:text-xl`}>☰</span></button>
         </div>
       </div>
       {/* Pregunta */}
-      <div className={`w-[80vw] max-w-xl rounded-[2rem] ${dark ? 'bg-[#2d1e4d]' : 'bg-[#f6eaff]'} shadow-md text-center py-4 mb-4`}>
-        <span className={`text-2xl ${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} font-semibold`}>¿Cómo te sientes?</span>
+      <div className={`w-full max-w-xs sm:max-w-md md:max-w-xl rounded-2xl sm:rounded-[2rem] ${dark ? 'bg-[#2d1e4d]' : 'bg-[#f6eaff]'} shadow-md text-center py-2 sm:py-4 mb-2 sm:mb-4`}>
+        <span className={`text-base sm:text-2xl ${dark ? 'text-[#e0d6f7]' : 'text-[#6d4ba1]'} font-semibold`}>¿Cómo te sientes?</span>
       </div>
       {/* Selector de emociones */}
-      <MoodSelector selectedMood={mood} onSelect={handleMoodSelect} />
-      {/* Botón historial encima de la frase */}
-      <div className="w-full flex justify-center mb-2 gap-2">
+      <div className="w-full flex justify-center">
+        <MoodSelector selectedMood={mood} onSelect={handleMoodSelect} />
+      </div>
+      {/* Botones de historial y calendario */}
+      <div className="w-full flex justify-center mb-2 gap-2 flex-wrap px-1">
         <button
           onClick={() => setShowHistory(true)}
           className={`flex items-center gap-2 px-5 py-2 rounded-full shadow-md font-medium text-lg transition-colors border-2 ${dark ? 'bg-[#2d1e4d] text-[#e0d6f7] border-[#6d4ba1] hover:bg-[#3a2a5d]' : 'bg-white text-[#6d4ba1] border-[#bba3e3] hover:bg-[#f6eaff]'}`}
@@ -154,11 +158,11 @@ export default function App() {
         </button>
       </div>
       {/* Frase principal */}
-      <div className={`w-[90vw] max-w-2xl rounded-[2rem] shadow-xl text-center text-3xl font-serif py-12 px-6 my-8 transition-colors duration-300 ${mood && MOOD_BG[mood] ? MOOD_BG[mood] : (dark ? 'bg-[#6d4ba1] text-white' : 'bg-[#bba3e3] text-white')} ${dark && !(mood && MOOD_BG[mood]) ? 'text-white' : ''}`}>
+      <div className={`w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl rounded-2xl sm:rounded-[2rem] shadow-xl text-center text-base sm:text-2xl md:text-3xl font-serif py-4 sm:py-8 px-2 sm:px-6 my-2 sm:my-8 transition-colors duration-300 ${mood && MOOD_BG[mood] ? MOOD_BG[mood] : (dark ? 'bg-[#6d4ba1] text-white' : 'bg-[#bba3e3] text-white')} ${dark && !(mood && MOOD_BG[mood]) ? 'text-white' : ''}`}>
         {quote}
       </div>
       {/* Botones de acción */}
-      <div className="flex gap-8 mt-2">
+      <div className="flex gap-3 sm:gap-8 mt-2 mb-4 flex-wrap justify-center w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl">
         <button
           onClick={() => handleToggleFavorite(quote)}
           className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-pink-50 transition-colors"
