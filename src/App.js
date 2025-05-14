@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import MoodSelector from './components/MoodSelector';
 import Settings from './components/Settings';
-import QuoteDisplay from './components/QuoteDisplay';
 import { getQuote } from './services/QuoteService';
 import { NotificationService, requestNotificationPermission } from './services/NotificationService';
 import { saveToStorage, getFromStorage } from './utils/storage';
 import History from './components/History';
 
 const DEFAULT_INTERVAL = 3600000;
-
-// Colores por sentimiento
-const MOOD_COLORS = {
-  'Feliz': 'bg-yellow-200 text-yellow-900',
-  'Triste': 'bg-blue-200 text-blue-900',
-  'Estresado': 'bg-orange-200 text-orange-900',
-  'Cansado': 'bg-purple-200 text-purple-900',
-  'Motivado': 'bg-pink-200 text-pink-900',
-};
 
 // Punto de ruptura para viewport
 const isSmallScreen = window.innerWidth < 640;
